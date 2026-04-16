@@ -1,22 +1,12 @@
-
 import pandas as pd
 import plotly.express as px
 
-# 1. Criando os dados (como se fosse uma planilha)
-vendas = {
-    'Mês': ['Jan', 'Fev', 'Mar', 'Abr'],
-    'Receita': [10500, 12000, 9000, 15000]
-}
+df = pd.read_csv('https://raw.githubusercontent.com/datasets/gdp/master/data/gdp.csv')
 
-# 2. Transformando em um DataFrame (A "super tabela" do Pandas)
-df = pd.DataFrame(vendas)
-
-# 3. Criando um gráfico de linha interativo
 fig = px.line(df,
-              x='Mês',
-              y='Receita',
-              title='Desempenho de Vendas da Startup',
-              markers=True) # Adiciona pontos nos meses
+              x='Year',
+              y='Value',
+              title='Dados de GDP para estudo',
+              markers=True)
 
-# 4. Exibindo o resultado
-print(fig.show())
+fig.show()
